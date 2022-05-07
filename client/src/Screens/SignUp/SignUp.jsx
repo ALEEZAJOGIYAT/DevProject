@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
+import { uuid } from 'uuidv4';
 // import useId from "react-use-uuid";
 // import axios from "axios";
 import { AUTH } from '../../Utils/apis'
@@ -60,7 +61,7 @@ const SignUp = () => {
 const [File, setFile] = useState();
 const onFileChange = (e)=>{
   
-  setFile(e?.target?.files[0])
+  setFile(e?.target?.files[0].name)
   // setFile(e?.target?.files[0].name)
   console.log(e?.target?.files[0].name)
 }
@@ -102,7 +103,7 @@ formData.append("upload_preset", "fdp4mw2g");
       lastName : input.lastname,
       email : email,
       Password: password,
-      img: File
+      avatar: File
     })
     setInput({
       firstname:"",

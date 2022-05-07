@@ -17,7 +17,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import {usehistory}
 
@@ -29,7 +29,7 @@ const Login = () => {
     password: "",
     showPassword: false,
   });
-  // const history = useNavigate();
+  const history = useNavigate();
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
@@ -61,17 +61,17 @@ const Login = () => {
         })
         .then((res) => {
           console.log("token response", res);
-          // dispatch(User(res?.data));
-          // history("/");
-        })
-        .catch((er) => {
+          dispatch(User(res?.data))
+          history('/')
+        }).catch((er)=>{
           console.log("er response", er);
+
         })
     ) {
       // const data=res.json()
       // console.log(data)
     }
-    // history("/");
+    history("/");
   };
 
   return (
