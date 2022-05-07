@@ -1,4 +1,4 @@
-import * as React from 'react'
+import  React ,{useEffect} from 'react'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Fade from '@mui/material/Fade'
@@ -12,6 +12,7 @@ import { useState } from 'react'
 import Person from '@mui/icons-material/Person'
 import Logout from '@mui/icons-material/Logout'
 import MenuIcon from '@mui/icons-material/Menu'
+// import { useDispatch, useSelector } from "react-redux";
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { Link } from 'react-router-dom'
 
@@ -20,7 +21,13 @@ const Header = (props) => {
   const open = Boolean(anchorEl)
   const { authActions, history, user } = props
   const [auth, setAuth] = useState(true)
-
+  
+  // const signAuth = useSelector((state) => state.addUser);
+const signAuth=''
+  useEffect(() => {
+    console.log(signAuth);
+  }, [signAuth]);
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
   }
@@ -61,18 +68,7 @@ const Header = (props) => {
             &nbsp;
           </Typography>
         
-          
-          <div className="btns">
-            <Link to='/signup'>
-              
-         <button>Sign Up</button>
-            </Link>
-            <Link to='/login' >
-              
-         <button>Login</button>
-            </Link>
-          </div>
-          {auth && (
+          {signAuth?`${auth && (
             <div style={{ display: 'flex', flexDirection: 'row' }}>
               <IconButton
                 sx={{
@@ -127,7 +123,19 @@ const Header = (props) => {
                 </MenuItem>
               </Menu>
             </div>
-          )}
+          )}` :
+          <div className="btns">
+            <Link to='/signup'>
+              
+         <button>Sign Up</button>
+            </Link>
+            <Link to='/login' >
+              
+         <button>Login</button>
+            </Link>
+          </div>
+        }
+         
 
         </Toolbar>
       </AppBar>

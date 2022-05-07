@@ -2,7 +2,7 @@ const HOME = `/`
 const LOGIN = `/login`
 const SIGNUP = `/signup`
 const PROJECTPAGE = `/project`
-const INDEX = `/index`
+const ACTIVE = `/activate`
 
 
 export default {
@@ -10,5 +10,5 @@ export default {
    LOGIN,
    SIGNUP,
    PROJECTPAGE,
-   INDEX
+   ACTIVE
 }

@@ -19,10 +19,13 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+// import { User } from "../../Redux/action/action";
 // import {usehistory}
 
 // import Signup from "./Signup";
 const Login = () => {
+  const dispatch=useDispatch()
   const [values, setValues] = useState({
     email: "",
     password: ""
@@ -31,19 +34,7 @@ const Login = () => {
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
   const userData = {
-    cnic: values.cnic,
     email: values.email,
     password: values.password,
   };
@@ -51,9 +42,7 @@ const Login = () => {
     e.preventDefault();
     console.log(userData, "USER DATA ==>>>");
     if (
-      axios
-        .post("http://localhost:4000/login", {
-          cnic: values.cnic,
+      axios.post("http://localhost:4000/login", {
           email: values.email,
           password: values.password,
         })

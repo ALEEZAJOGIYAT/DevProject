@@ -36,7 +36,7 @@ const Login = async (req, res) => {
     return res.json({ status: "notok", error: "plz enter " });
   }
   console.log(req.body);
-  const userLogin = await DbModel.findOne({ Email: email });
+  const userLogin = await User.findOne({ Email: email });
   // console.log(userLogin)
   if (userLogin) {
     const isMatch = await bcrypt.compare(password, userLogin.Password);
@@ -87,9 +87,10 @@ const transporter = nodemailer.createTransport({
 const mailData = {
       from: 'reebasiddiqui456@gmail.com',  // sender address
         to: email ,   // list of receivers
-        subject: 'Code From Project Manager',
+        subject: 'Token From Project Manager',
         text: `Hello! this is your ${uuid()} and using this ID you can enter in Workspace
-        your can join as ${role}
+        your can join as ${role} and Click on below Link
+        http://localhost:3000/activate
         Thank you`
        };
        transporter.sendMail(mailData, function(error, info){
