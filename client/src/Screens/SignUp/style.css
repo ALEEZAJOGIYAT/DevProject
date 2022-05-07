@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Righteous&display=swap');
+:root {
+    --color1:#5680E9;
+ --color2:#84CEEB;
+ --color3:#5AB9EA;
+ --color4:#C1C8E4;
+ --color5:#8860D0;
+  }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f1f4f9,#dff1ff)
+}
+.main .bgcolor{
+    position: absolute;
+    filter: blur(150px);
+}
+.main .bgcolor:nth-child(1){
+   left: 200px;
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    background-color: #C1C8E4;
+}
+.main .bgcolor:nth-child(2){
+    width: 400px;
+    height: 400px;
+    left: 250px;
+    bottom: -150px;
+    background-color: #fffd87;
+}
+.main .bgcolor:nth-child(3){
+    width: 400px;
+    height: 400px;
+    bottom: 100px;
+    right: 300px;
+    background-color: #5AB9EA;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 150vh !important;
+    background: rgba(225, 225, 225, 0.1);
+    min-height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ffff;
+    backdrop-filter: blur(5px);
+}
+.form{
+    width: 50%;
+}
+.form h1{
+    color: var(--color5);
+    font-weight: light;
+    font-size: 2.5em;
+    font-family: Righteous;
+}
+.form button{
+    margin-top: 25px;
+    width: 100%;
+    background-color: var(--color5);
+    height: 55px;
+    border-radius: 2px ;
+    Opacity: 60%;
+    padding: 6px 16px;
+    text-transform: uppercase;
+    font-family: Righteous;
+    font-weight: 500;
+    font-size: 1.35em;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    border: 1px solid var(--color5);
+    color: #ffff;
+}
+.name{
+    display:flex;
+    justify-content: space-between;
+    align-items: center
+}
+input[type=file]{
+    display: none;
+}
+.uploadBtn{
+    background-color: #8860D0 !important ;
+}
+@media (max-width: 1300px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 1000px) {}
+
+@media (max-width: 900px) {}
+
+@media (max-width: 800px) {}
+
+@media (min-width: 700px) {}
+
+@media (max-width: 700px) {
+    .main{
+        width: 100%;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100vh !important;
+        background: rgba(225, 225, 225, 0.1);
+        min-height: 500px;
+        border-radius: 10px;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ffff;
+        backdrop-filter: blur(5px);
+        margin: 1.75em !important;
+        padding: 1em !important;
+    }
+    .form{
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {}
+
+@media (max-width: 557px) {}
+
+@media (max-width: 500px) { }
+
+@media (max-width: 500px) and (min-width:370px) {}
+
+@media (max-width: 450px) {}
+
+@media (max-width: 400px) {}
+
+@media (max-width: 350px) {}
+
+@media (max-width: 300px) {}

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Righteous&display=swap');
+:root {
+    --color1:#5680E9;
+ --color2:#84CEEB;
+ --color3:#5AB9EA;
+ --color4:#C1C8E4;
+ --color5:#8860D0;
+  }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f1f4f9,#dff1ff)
+}
+.main .bgcolor{
+    position: absolute;
+    filter: blur(150px);
+}
+.main .bgcolor:nth-child(1){
+   left: 200px;
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    background-color: #C1C8E4;
+}
+.main .bgcolor:nth-child(2){
+    width: 400px;
+    height: 400px;
+    left: 250px;
+    bottom: -150px;
+    background-color: #fffd87;
+}
+.main .bgcolor:nth-child(3){
+    width: 400px;
+    height: 400px;
+    bottom: 100px;
+    right: 300px;
+    background-color: #5AB9EA;
+}
+.Paper{
+    text-align: center !important ;
+    box-shadow: 5em !important;
+    padding: 2.5em !important;
+    margin: auto !important;
+    max-width: 500px !important;
+    flex-grow: 2 !important;
+    display: flex !important;
+}
+.h1{
+    font-family: Righteous;
+    color: #8860D0;
+    position: relative;
+}
+.button{
+    font-family: Righteous !important;
+    margin: 1em 0 1em 0 !important;
+    background-color: var(--color5) !important;
+}
+.textField{
+ color: #ffff !important;
+ border-radius: 0;
+ background-color:rgba(225, 225, 225, 0.1) !important;
+}
+.textField label{
+    color: #ffff;
+    font-size: 0.7em;
+}
+.textField input{
+    height: 1.2em !important;
+    font-size: 0.9em; 
+    color: #ffff;
+}
+.css-hc1pde-MuiInputBase-root-MuiFilledInput-root{
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+.css-hc1pde-MuiInputBase-root-MuiFilledInput-root:before{
+    border-bottom: none !important;
+}
+.textField input::before{
+    height: 1.2em !important;
+}
+.css-hc1pde-MuiInputBase-root-MuiFilledInput-root:after{
+    border-bottom: none !important;
+}
+.signupLink{
+    color: #8860D0 !important;
+}
+
+
+@media (max-width: 1300px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 1000px) {}
+
+@media (max-width: 900px) {}
+
+@media (max-width: 800px) {}
+
+@media (min-width: 700px) {}
+
+@media (max-width: 700px) {
+}
+
+@media (max-width: 600px) {}
+
+@media (max-width: 557px) {}
+
+@media (max-width: 500px) { }
+
+@media (max-width: 500px) and (min-width:370px) {}
+
+@media (max-width: 450px) {}
+
+@media (max-width: 400px) {}
+
+@media (max-width: 350px) {}
+
+@media (max-width: 300px) {}
