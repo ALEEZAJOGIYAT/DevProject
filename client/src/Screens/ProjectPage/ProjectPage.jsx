@@ -19,15 +19,17 @@ import { FormControl } from "@mui/material";
 
 
 
-const ProjectPage = () => {
+const ProjectPage = ({pro}) => {
   const history = useNavigate();
   const [modalShow, setModalShow] = React.useState(false);
+  const [projects, setProjects] = useState([])
   
   return (
     <>
       <div className="menu_header">
         <Header />
       </div>
+    {/* {pro.map((todo, index) => ( */}
       <div className="adduser">
       <Box sx={{ maxWidth: 100 }}>
       <FormControl fullWidth>
@@ -65,8 +67,7 @@ const ProjectPage = () => {
         </Select>
         </FormControl>
         </Box>
-        <input className="project_des"/>
-        
+        <p className="project_des">reeba</p>
 
         <Form.Select
           className="selector"
@@ -86,6 +87,7 @@ const ProjectPage = () => {
           onHide={() => setModalShow(false)}
         />
       </div>
+      {/* ))} */}
     </>
   );
 };
