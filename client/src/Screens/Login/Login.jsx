@@ -24,10 +24,8 @@ import axios from "axios";
 // import Signup from "./Signup";
 const Login = () => {
   const [values, setValues] = useState({
-    cnic: "",
     email: "",
-    password: "",
-    showPassword: false,
+    password: ""
   });
   const history = useNavigate();
   const handleChange = (event) => {
@@ -61,7 +59,7 @@ const Login = () => {
         })
         .then((res) => {
           console.log("token response", res);
-          dispatch(User(res?.data))
+          // dispatch(User(res?.data))
           history('/')
         }).catch((er)=>{
           console.log("er response", er);

@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route, Routes
 } from 'react-router-dom';
-import { Home, SignUp, Login } from "../Screens";
+import { Home, SignUp, Login, ProjectPage,Index } from "../Screens";
+
 import allPaths from "./paths";
 
 
@@ -23,6 +24,8 @@ const AppRoutes = () => {
         <Route path={allPaths?.HOME} exact element={<Home/>} />
         <Route path={allPaths?.LOGIN} exact element={<Login/>} />
         <Route path={allPaths?.SIGNUP} exact element={<SignUp/>} />
+        <Route path={allPaths?.PROJECTPAGE} exact element={<ProjectPage/>} />
+        {/* <Route path={allPaths?.PROJECTPAGE} exact element={<Index/>} /> */}
       </Routes>
     </Router>
   );

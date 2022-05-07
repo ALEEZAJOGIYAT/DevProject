@@ -1,5 +1,7 @@
 const  User  = require("../model/User");
 const bcrypt = require("bcrypt");
+const nodemailer = require('nodemailer');
+const { uuid } = require('uuidv4');
 
 
 
@@ -70,8 +72,38 @@ const Login = async (req, res) => {
     return res.json({ error: "invalid crediential" });
   }
 };
+const Email = async (req,res) =>{
+const { email, role } =req.body
+console.log(email , role)
+const transporter = nodemailer.createTransport({
+  port: 465,               // true for 465, false for other ports
+  host: "smtp.gmail.com",
+     auth: {
+          user: 'reebasiddiqui456@gmail.com',
+          pass: 'siddiqui456@',
+       },
+  secure: true,
+  });
+const mailData = {
+      from: 'reebasiddiqui456@gmail.com',  // sender address
+        to: email ,   // list of receivers
+        subject: 'Code From Project Manager',
+        text: `Hello! this is your ${uuid()} and using this ID you can enter in Workspace
+        your can join as ${role}
+        Thank you`
+       };
+       transporter.sendMail(mailData, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+
+}
 
 module.exports = {
   createUser,
-  Login
+  Login,
+  Email
 };
