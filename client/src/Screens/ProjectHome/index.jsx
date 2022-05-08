@@ -48,15 +48,15 @@ export const ProjectHome = () => {
 			</div>
 			<TableContainer component={Paper}>
 				<Table
-					sx={{ minWidth: 650, padding: 12, marginTop: 10 }}
+					sx={{ minWidth: 550, padding: 10, marginTop: 10 }}
 					aria-label="simple table"
 				>
 					<TableHead>
 						<TableRow>
-							<TableCell>Name</TableCell>
+							<TableCell align="right">Name</TableCell>
 							<TableCell align="right">Key</TableCell>
-							<TableCell align="right">Type</TableCell>
-							<TableCell align="right">Lead</TableCell>
+							<TableCell align="right"></TableCell>
+							{/* <TableCell align="right">Lead</TableCell> */}
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -64,22 +64,20 @@ export const ProjectHome = () => {
 							// key={id}
 							sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
 						>
-							<TableCell component="th" scope="row">
+							<TableCell component="th" scope="row" align="right">
 								{" "}
 								{project.data[0]?.data.projectName}
 							</TableCell>
 							<TableCell align="right">{project.data[0]?.data.key}</TableCell>
 							<TableCell align="right">{project.data[0]?.data.type}</TableCell>
-							<TableCell align="right">{user.data[0]?.data.name}</TableCell>
+							{/* <TableCell align="right">Team-Managed Software</TableCell> */}
+							{/* <TableCell align="right">Reeba Siddique</TableCell> */}
 
 							<TableCell align="right">
 								<Button onClick={handleClick}>
 									<ArrowForwardIosIcon />
 								</Button>
 							</TableCell>
-						</TableRow>
-						<TableRow>
-							<TableCell></TableCell>
 						</TableRow>
 					</TableBody>
 				</Table>

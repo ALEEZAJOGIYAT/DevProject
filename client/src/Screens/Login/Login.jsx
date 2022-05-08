@@ -38,7 +38,7 @@ const Login = () => {
 				.then((res) => {
 					console.log("token response", res);
 					dispatch(user(res?.data));
-					history("/");
+					history("/projecthome");
 				})
 				.catch((er) => {
 					console.log("er response", er);
