@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Righteous&display=swap');
+:root {
+    --color1:#5680E9;
+ --color2:#84CEEB;
+ --color3:#5AB9EA;
+ --color4:#C1C8E4;
+ --color5:#8860D0;
+  }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.paper{
+    text-align: center !important ;
+    box-shadow: 5em !important;
+    padding: 2.5em !important;
+    /* margin: auto !important; */
+    max-width: 500px !important;
+    margin-top: 20;
+}
+.box{
+    border: 2px solid #C1C8E4;
+    height: 5em;
+    width:20em;
+}
+.project_des{
+    width: 100%;
+    margin: 0 1em 0 1em;
+    padding: 0.3em;
+}
+p{
+    margin-bottom: 0 !important;
+}
+.task{
+    width:30%;
+    padding: 0.3em;
+    margin: auto;
+}
+.adduser{
+    margin: 2em;
+    display: flex;
+    border-bottom: 1px solid #C1C8E4;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+}
+.selector{
+    width: 5em;
+}
+.form-select{
+    width: auto !important;
+}
+.user{
+    color: #8860D0;
+    margin: 0 0.3em 0 0.3em;
+
+}
+.task{
+    margin-top: 10;
+    margin-left: 20;
+}
+.css-cveggr-MuiListItemIcon-root{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-width: 0 !important;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+    border-radius: 0 !important;
+     border-style: none !important;
+}
+@media (max-width: 1300px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 1000px) {}
+
+@media (max-width: 900px) {}
+
+@media (max-width: 800px) {}
+
+@media (min-width: 700px) {}
+
+@media (max-width: 700px) {
+}
+
+@media (max-width: 600px) {}
+
+@media (max-width: 557px) {}
+
+@media (max-width: 500px) { }
+
+@media (max-width: 500px) and (min-width:370px) {}
+
+@media (max-width: 450px) {}
+
+@media (max-width: 400px) {}
+
+@media (max-width: 350px) {}
+
+@media (max-width: 300px) {}

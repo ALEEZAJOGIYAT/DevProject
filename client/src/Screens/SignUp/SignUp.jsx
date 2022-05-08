@@ -5,26 +5,13 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-// import useId from "react-use-uuid";
-// import axios from "axios";
 import { AUTH } from "../../Utils/apis";
 import axios from "axios";
-import {
-	requiredMessage,
-	inputPlace,
-	successNotification,
-	errorMessage,
-	warningMessage,
-} from "../../Utils/helpers";
 import CircularProgress from "@mui/material/CircularProgress";
-// import UploadOutlined from "@mui/material/UploadOutlined";
 
 const SignUp = () => {
-	// const [fileList, setFileList] = useState([])
 	let formData = new FormData();
 	const navigate = useNavigate();
-	// const key = useId();
 	const [input, setInput] = useState({
 		firstname: "",
 		lastname: "",
@@ -42,34 +29,15 @@ const SignUp = () => {
 	let [invalidEmail, setInvalidEmail] = useState(false);
 	let [invalidpass, setInvalidpass] = useState(false);
 	let [passwordError, setpasswordError] = useState(false);
-	// const [fileList, setFileList] = useState([])
 
-	//   const normFile = (e) => {
-	//     console.log(e)
-	//     setFileList([])
-
-	//     if (e?.fileList?.length) {
-	//         errorMessage('You can only upload Images!')
-	//         return []
-	//     }
-
-	//     if (Array.isArray(e)) {
-	//         return e
-	//     }
-
-	//     e?.fileList?.length ? setFileList([...[e?.file]]) : setFileList([])
-	//     return e && [e.file]
-	// }
 	const [File, setFile] = useState();
 	const onFileChange = (e) => {
 		setFile(e?.target?.files[0]);
-		// setFile(e?.target?.files[0].name)
-		console.log(e?.target?.files[0].name);
 	};
-	console.log(File, "FILE");
 
 	formData.append("file", File);
 	formData.append("upload_preset", "fdp4mw2g");
+
 	const onSubmit = (e) => {
 		e.preventDefault();
 		console.log(e);
@@ -93,10 +61,7 @@ const SignUp = () => {
 		} else {
 			setpasswordError(false);
 		}
-		console.log(input.firstname);
-		console.log(input.lastname);
-		console.log(email);
-		console.log(password);
+
 		axios.post("http://localhost:4000/signup", {
 			firstName: input.firstname,
 			lastName: input.lastname,
@@ -111,13 +76,9 @@ const SignUp = () => {
 		setemail("");
 		setpassword("");
 		setFile(null);
-		// console.log(data);
+		navigate("/login");
 	};
 
-	// const handleChange = (event) => {
-	//   setAge(event.target.value);
-	//   console.log(event.target.value);
-	// };
 	const Input = styled("input")({
 		display: "none",
 	});
@@ -503,7 +464,7 @@ const SignUp = () => {
 										setemailError(true);
 									} else {
 										let passformat =
-											/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,1000}$/;
+											/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 										if (!password.match(passformat)) {
 											setInvalidpass(true);
 											setpassword(e.target.value);

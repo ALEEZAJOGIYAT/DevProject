@@ -7,36 +7,22 @@ import Container from "@mui/material/Container";
 import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { user } from "../../redux/user/actions";
 
 const Login = () => {
+	const dispatch = useDispatch();
 	const [values, setValues] = useState({
-		cnic: "",
 		email: "",
 		password: "",
-		showPassword: false,
 	});
-	const dispatch = useDispatch();
-
+	const history = useNavigate();
 	const handleChange = (event) => {
 		setValues({ ...values, [event.target.name]: event.target.value });
 	};
-
-	const handleClickShowPassword = () => {
-		setValues({
-			...values,
-			showPassword: !values.showPassword,
-		});
-	};
-
-	const handleMouseDownPassword = (event) => {
-		event.preventDefault();
-	};
-
 	const userData = {
-		cnic: values.cnic,
 		email: values.email,
 		password: values.password,
 	};
@@ -45,22 +31,19 @@ const Login = () => {
 		if (
 			axios
 				.post("http://localhost:4000/login", {
-					cnic: values.cnic,
 					email: values.email,
 					password: values.password,
 				})
 				.then((res) => {
-					console.log("token response", res?.data);
+					console.log("token response", res);
 					dispatch(user(res?.data));
+					history("/addproject");
 				})
 				.catch((er) => {
 					console.log("er response", er);
 				})
-		) {
-			// const data=res.json()
-			// console.log(data)
-		}
-		// history("/");
+		)
+			history("/");
 	};
 
 	return (
@@ -100,7 +83,6 @@ const Login = () => {
 									onChange={handleChange}
 									className="textField"
 								/>
-								{/* <Form.Check type="checkbox" label="Remember me" /> */}
 								<FormHelperText>
 									We'll keep you signed in on this device. You may be asked to
 									enter your password when modifying sensitive account
@@ -118,13 +100,6 @@ const Login = () => {
 						</form>
 					</Paper>
 				</Container>
-
-				{/* 
-      <Switch>
-        <Route path="/sign-up">
-          <Signup />
-        </Route>
-      </Switch> */}
 			</div>
 		</>
 	);

@@ -1,4 +1,4 @@
-import { USER } from "./actionTypes";
+import { USER, DELETE_USER } from "./actionTypes";
 
 const initialState = {
 	data: [],
@@ -12,11 +12,17 @@ export const userReducer = (state = initialState, action) => {
 			return {
 				...state,
 				data: [
-					...state.data,
 					{
 						data: data,
 					},
 				],
+			};
+
+		case DELETE_USER:
+			return {
+				data: {
+					data: [],
+				},
 			};
 
 		default:

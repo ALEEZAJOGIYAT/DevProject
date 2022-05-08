@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import "./style.css";
-import {
-	Button,
-	Container,
-	Box,
-	Grid,
-	Modal,
-	Typography,
-	TextField,
-	FormHelperText,
-	FormLabel,
-} from "@mui/material";
+import { Button, Box, Modal, TextField, FormHelperText } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { addProject } from "../../redux/addProject/actions";
+import { useNavigate } from "react-router-dom";
+import allPaths from "../../Config/paths";
 
 const style = {
 	position: "absolute",
@@ -29,13 +21,15 @@ export const CreateProject = () => {
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 	const [open, setOpen] = useState(false);
+
 	const dispatch = useDispatch();
+	const history = useNavigate();
 
 	const [values, setValues] = useState({
 		projectName: "",
 		key: "",
+		type: "",
 	});
-	// const history = useNavigate();
 
 	const handleChange = (event) => {
 		setValues({ ...values, [event.target.name]: event.target.value });
@@ -43,19 +37,18 @@ export const CreateProject = () => {
 
 	const handleAddProject = (e) => {
 		e.preventDefault();
-		if (values.key && values.projectName) {
+		if (values.key && values.projectName && values.type) {
 			dispatch(addProject(values));
+			history(allPaths?.PROJECTPAGE);
 		}
-		console.log(values, "valuessssss");
+		setValues({ projectName: "" });
+		setValues({ key: "" });
+		setValues({ type: "" });
 	};
 
 	return (
 		<>
-			<Button
-				variant="contained"
-				onClick={handleOpen}
-				// className="SignBtn"
-			>
+			<Button variant="contained" onClick={handleOpen}>
 				Create Project
 			</Button>
 
@@ -75,7 +68,6 @@ export const CreateProject = () => {
 							label="Project Name"
 							type="text"
 							autoComplete="current-text"
-							// variant="filled"
 							margin="normal"
 							name="projectName"
 							value={values.projectName}
@@ -86,17 +78,26 @@ export const CreateProject = () => {
 							project
 						</FormHelperText>
 						<br />
-						{/* <p className="label">Key</p> */}
 						<TextField
 							required
 							id="custom-css-outlined-input"
 							label="Key"
 							type="text"
 							autoComplete="current-text"
-							// variant="filled"
 							margin="normal"
 							name="key"
 							value={values.key}
+							onChange={handleChange}
+						/>
+						<TextField
+							required
+							id="custom-css-outlined-input"
+							label="Type of Project"
+							type="text"
+							autoComplete="current-text"
+							margin="normal"
+							name="type"
+							value={values.type}
 							onChange={handleChange}
 						/>
 					</div>
