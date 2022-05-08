@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import "./style.css";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import axios from "axios";
 import image from "../../assets/side-image.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Header from "../header/header";
+import Header from "../../Components/Header";
 
 const Home = () => {
-	const [check, setcheck] = useState("");
-	const call = () => {
-		axios.get("http://localhost:4000/login").then((res) => {});
-	};
-
 	return (
 		<>
 			<div className="menu_header">

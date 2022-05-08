@@ -32,6 +32,11 @@
 p{
     margin-bottom: 0 !important;
 }
+.task{
+    width:30%;
+    padding: 0.3em;
+    margin: auto;
+}
 .adduser{
     margin: 2em;
     display: flex;

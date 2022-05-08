@@ -4,7 +4,7 @@ const SIGNUP = `/signup`;
 const ADDPROJECT = `/addProject`;
 const PROJECTPAGE = `/project`;
 const ACTIVE = `/activate`;
-const PROJECTHOME = `/projecthome`;
+const PROJECTHOME = `/task`;
 
 export default {
 	HOME,

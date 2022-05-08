@@ -7,7 +7,7 @@ import {
 	AddProject,
 	ProjectPage,
 	Activate,
-	ProjectHome,
+	ProjectTask,
 } from "../Screens";
 import allPaths from "./paths";
 
@@ -21,7 +21,7 @@ const AppRoutes = () => {
 				<Route path={allPaths?.ADDPROJECT} exact element={<AddProject />} />
 				<Route path={allPaths?.PROJECTPAGE} exact element={<ProjectPage />} />
 				<Route path={allPaths?.ACTIVE} exact element={<Activate />} />
-				<Route path={allPaths?.PROJECTHOME} exact element={<ProjectHome />} />
+				<Route path={allPaths?.PROJECTHOME} exact element={<ProjectTask />} />
 			</Routes>
 		</Router>
 	);

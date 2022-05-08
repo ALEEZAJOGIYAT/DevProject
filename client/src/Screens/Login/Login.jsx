@@ -28,7 +28,6 @@ const Login = () => {
 	};
 	const handlesubmit = (e) => {
 		e.preventDefault();
-		console.log(userData, "USER DATA ==>>>");
 		if (
 			axios
 				.post("http://localhost:4000/login", {
@@ -38,7 +37,7 @@ const Login = () => {
 				.then((res) => {
 					console.log("token response", res);
 					dispatch(user(res?.data));
-					history("/projecthome");
+					history("/addproject");
 				})
 				.catch((er) => {
 					console.log("er response", er);

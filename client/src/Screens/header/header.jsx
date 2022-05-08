@@ -1,21 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useSyncExternalStore } from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
 import IconButton from "@mui/material/IconButton";
 import { Box, Divider, Typography } from "@mui/material";
-import Person from "@mui/icons-material/Person";
 import Logout from "@mui/icons-material/Logout";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { allPaths, color1, color5 } from "../../Utils/constant";
+import { color1, color5 } from "../../Utils/constant";
 import "./style.css";
+import { deleteUser } from "../../redux/user/actions";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
+	const signAuth = useSelector((state) => state.user);
+	console.log(signAuth, "signAuth");
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
 	const { authActions, history, user } = props;
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -25,14 +32,10 @@ const Header = (props) => {
 		setAnchorEl(null);
 	};
 
-	const profile = () => {
-		handleClose();
-		history?.push(allPaths.PROFILE_SETTINGS);
-	};
-
 	const logout = () => {
 		setAnchorEl(null);
-		authActions?.removeUser();
+		dispatch(deleteUser(signAuth?.data?._id));
+		navigate("/login");
 	};
 
 	return (
@@ -89,7 +92,6 @@ const Header = (props) => {
 									variant="h5"
 									component="div"
 								>
-									{/* <b>{user?.fullName}</b> */}
 									<b>{"unknown"}</b>
 								</Typography>
 								<Typography
@@ -97,15 +99,10 @@ const Header = (props) => {
 									variant="p"
 									component="div"
 								>
-									{/* {user?.email} */}
 									{"unknown@gmail.com"}
 								</Typography>
 							</Box>
 							<Divider sx={{ my: 1 }} />
-							<MenuItem onClick={profile} className="mui-size">
-								<Person style={{ fontSize: 20, color: `${""}` }} /> &nbsp;
-								Profile
-							</MenuItem>
 							<MenuItem onClick={logout} className="mui-size">
 								<Logout style={{ fontSize: 20, color: `${""}` }} /> &nbsp;
 								Logout

@@ -24,6 +24,7 @@ const loadFromLocalStorage = () => {
 };
 
 const presistedState = loadFromLocalStorage();
+
 export const store = createStore(
 	rootReducer,
 	presistedState,

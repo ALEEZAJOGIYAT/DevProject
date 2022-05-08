@@ -1,28 +1,22 @@
-import { USER, DELETE_USER } from "./actionTypes";
+import { TASK } from "./actionTypes";
 
 const initialState = {
 	data: [],
 };
 
-export const userReducer = (state = initialState, action) => {
+export const taskReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case USER:
+		case TASK:
 			const { data } = action.payload;
 
 			return {
 				...state,
 				data: [
+					...state.data,
 					{
 						data: data,
 					},
 				],
-			};
-
-		case DELETE_USER:
-			return {
-				data: {
-					data: [],
-				},
 			};
 
 		default:

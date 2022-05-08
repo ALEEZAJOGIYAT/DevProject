@@ -41,7 +41,9 @@ export const CreateProject = () => {
 			dispatch(addProject(values));
 			history(allPaths?.PROJECTPAGE);
 		}
-		console.log(values, "valuessssss");
+		setValues({ projectName: "" });
+		setValues({ key: "" });
+		setValues({ type: "" });
 	};
 
 	return (
@@ -66,7 +68,6 @@ export const CreateProject = () => {
 							label="Project Name"
 							type="text"
 							autoComplete="current-text"
-							// variant="filled"
 							margin="normal"
 							name="projectName"
 							value={values.projectName}

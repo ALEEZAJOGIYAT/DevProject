@@ -51,22 +51,22 @@ const Login = async (req, res) => {
 	}
 };
 const Email = async (req, res) => {
-	const { email, role } = req.body;
-	console.log(email, role);
+	const { email, role, key, projectName } = req.body;
+	console.log(email, role, key, projectName);
 	const transporter = nodemailer.createTransport({
 		port: 465, // true for 465, false for other ports
 		host: "smtp.gmail.com",
 		auth: {
-			user: "reebasiddiqui456@gmail.com",
-			pass: "siddiqui456@",
+			user: "sadiasiddiqui654@gmail.com",
+			pass: "sadia123$",
 		},
 		secure: true,
 	});
 	const mailData = {
-		from: "reebasiddiqui456@gmail.com", // sender address
+		from: "aleezajogiyat09@gmail.com", // sender address
 		to: email, // list of receivers
 		subject: "Token From Project Manager",
-		text: `Hello! this is your ${uuid()} and using this ID you can enter in Workspace
+		text: `Hello! this is your ${key} of the project ${projectName} and using this ID you can enter in Workspace
         your can join as ${role} and Click on below Link
         http://localhost:3000/activate
         Thank you`,

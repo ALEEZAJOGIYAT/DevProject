@@ -4,6 +4,6 @@ import SignUp from "./SignUp/SignUp";
 import AddProject from "./AddProject";
 import ProjectPage from "./ProjectPage/ProjectPage";
 import Activate from "./Activated/Activate";
-import { ProjectHome } from "./ProjectHome";
+import { ProjectTask } from "./ProjectTask";
 
-export { Home, Login, SignUp, AddProject, ProjectPage, Activate, ProjectHome };
+export { Home, Login, SignUp, AddProject, ProjectPage, Activate, ProjectTask };

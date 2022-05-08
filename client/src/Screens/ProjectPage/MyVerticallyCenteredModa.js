@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import IconButton from "@mui/material/IconButton";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import Header from "../../Components/Header";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
-import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
+import { useSelector } from "react-redux";
 
 const MyVerticallyCenteredModal = (props) => {
+	const project = useSelector((state) => state.addProject);
+
+	useEffect(() => {}, [project]);
+
 	const [values, setValues] = useState({
 		email: "",
 		role: "",
@@ -31,6 +29,8 @@ const MyVerticallyCenteredModal = (props) => {
 			.post("http://localhost:4000/email", {
 				email: values.email,
 				role: values.role,
+				key: project?.data[0]?.data.key,
+				projectName: project?.data[0]?.data?.projectName,
 			})
 			.then((res) => {
 				console.log("token response", res);
