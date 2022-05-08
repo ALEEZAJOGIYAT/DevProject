@@ -10,10 +10,10 @@ import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import Header from "../../Components/Header";
 import { CreateProject } from "../../Components/createProjectModal";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import allPaths from "../../Config/paths";
+import Header from "../header/header";
 
 export const ProjectHome = () => {
 	let project = useSelector((state) => state.addProject);

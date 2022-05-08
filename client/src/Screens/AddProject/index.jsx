@@ -1,21 +1,9 @@
 import React, { useState } from "react";
-import Header from "../../Components/Header";
+import Header from "../header/header";
 import "./style.css";
 import Lottie from "react-lottie";
 import animationData from "../../assets/folder.json";
-import {
-	Button,
-	Container,
-	Box,
-	Grid,
-	Modal,
-	Typography,
-	TextField,
-	FormHelperText,
-	FormLabel,
-} from "@mui/material";
-import { useDispatch } from "react-redux";
-import { addProject } from "../../redux/addProject/actions";
+import { Container, Box, Grid } from "@mui/material";
 import { CreateProject } from "../../Components/createProjectModal";
 
 const AddProject = () => {

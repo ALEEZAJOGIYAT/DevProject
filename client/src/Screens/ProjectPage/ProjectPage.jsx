@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import Header from "../../Components/Header";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import MyVerticallyCenteredModal from "./MyVerticallyCenteredModa";
@@ -18,6 +17,7 @@ import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { LinearProgress } from "@mui/material";
+import Header from "../header/header";
 
 const ProjectPage = () => {
 	const [values, setValues] = useState({
